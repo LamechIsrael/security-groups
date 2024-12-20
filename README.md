@@ -22,11 +22,18 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+- Create access folders in the Domain Controller
+- Add sharing permissions to all folders except "accounting"
+- Log into a user and try to write in a read-only folder
+- Try to write in a read-write folder
+- Try to access the no-access folder
+- Confirm that the "accounting" folder is not visible, as it has no sharing permissions
+- Create a security group called "ACCOUNTANTS"
+- Add security group to the "accounting" folder
+- Confirm "accounting" folder is visible in a user's account, because of sharing permissions
+- Confirm that the user cannot access the folder
+- Add a user to the "ACCOUNTANTS" security group
+- Conform user can now access "accounting" folder
 
 <h2>Installation Steps</h2>
 
