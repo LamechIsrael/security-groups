@@ -3,7 +3,7 @@
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Network Protocols</h1>
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
+This tutorial outlines the implementation of sharing and security groups using Microsoft Azure.<br />
 
 
 <!-- <h2>Video Demonstration</h2>
@@ -42,7 +42,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In this picture, I created folders to handle sharing and access within the domain. They are called "read-access," "write-access," "no-access," and "accounting." Each of these folders were given permissions matching their name. The "no-access" folder was only shared with admins. But "accounting" was not given any sharing permissions. There is also a black window, which is the Control Panel in this picture. It is to show under what account these folders were created. This user, jane_doe, is an admin and can set permissions.
 </p>
 <br />
 
@@ -51,7 +51,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+By contrast, this account is under dub.meq. This is a user created for the purposes of this example. As you can see, every folder that was created is visible here. However, "accounting" is not visible, because it was not given sharing permissions. In other words, the "accounting" folder is not being shared.
 </p>
 <br />
 
@@ -60,7 +60,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Using the dub.meq account, I tried to create a folder within the "read-access" folder. It failed, proving that dub.meq cannot write within the "read-access" folder.
 </p>
 <br />
 
@@ -69,7 +69,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Still using the dub.meq account, I tried to write inside the "write-access" folder. It succeeded, proving that dub.meq can write within the "write-access" folder. As you can see, the folder gives me the option to change the name of the newly created folder.
 </p>
 <br />
 
@@ -78,7 +78,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+And still using the dub.meq account, I tried to access the "no-access" folder. And because dub.meq is not an admin, this failed.
 </p>
 <br />
 
@@ -87,7 +87,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Now, I logged back into the admin account of jane_doe and accessed Active Directory Users and Computers. Here, I can determine the roles of anyone within this domain. So, I created a folder called "_GROUPS" and created a group called "ACCOUNTANTS." Creating the folder was not necessary, but it was good for organization.
 </p>
 <br />
 
@@ -96,7 +96,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Now, I have gone into the "accountants" folder that I created earlier. And this time, I have given access to those in the "ACCOUNTANTS" Group.
 </p>
 <br />
 
@@ -105,7 +105,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Because the "accounting" folder now has sharing permissions, it can now be seen by users.
 </p>
 <br />
 
@@ -114,7 +114,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+But they cannot access it.
 </p>
 <br />
 
@@ -123,7 +123,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+So, I am adding dub.meq to the ACCOUNTANTS group.
 </p>
 <br />
 
@@ -132,7 +132,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+As you can see in this list of users.
 </p>
 <br />
 
@@ -141,6 +141,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+And now, dub.meq can access the "accounting" folder.
 </p>
 <br />
+
+<p>And that is the end of my File Sharing and Permissions demonstration.</p>
