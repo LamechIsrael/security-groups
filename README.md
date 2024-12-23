@@ -20,7 +20,7 @@ This tutorial outlines the implementation of sharing and security groups using M
 
 - Windows 10</b> (21H2)
 
-<h2>List of Prerequisites</h2>
+<h2>List of Action Items</h2>
 
 - Create access folders in the Domain Controller
 - Add sharing permissions to all folders except "accounting"
